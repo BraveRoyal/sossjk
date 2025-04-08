@@ -125,18 +125,21 @@ function App() {
               </div>
             </div>
             <div>
-              <form className="space-y-4">
+              <form onSubmit={SendMessage} className="space-y-4">
                 <input
+                  name="name"
                   type="text"
                   placeholder="Seu Nome"
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
                 <input
+                  name="email"
                   type="email"
                   placeholder="Endereço de E-mail"
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
                 <textarea
+                  name="text"
                   placeholder="Como podemos ajudar?"
                   rows={4}
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
@@ -180,6 +183,18 @@ function App() {
       </footer>
     </div>
   );
+
+  function SendMessage(event) {
+    event.preventDefault(); // Evita o recarregamento da página
+  
+    const formData = new FormData(event.target);
+    let name = formData.get("name")
+    let email = formData.get("email")
+    let text = formData.get("text")
+    const customText = `Olá, meu nome é ${name} e meu email é ${email}. Venho do site S.O.S SJK para solicitar o seguinte: "${text}"`;
+    window.open(`https://wa.me/5511946159837?text=${encodeURIComponent(customText)}`, '_blank');
+  }
+
 }
 
 function ServiceCard({ icon, title, description }) {
