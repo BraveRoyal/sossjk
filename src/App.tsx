@@ -116,11 +116,11 @@ function App() {
                   Mensagem no WhatsApp
                 </button>
                 <a
-                  href="mailto:info@sossjk.com"
+                  href="mailto:sos.sjk@outlook.com"
                   className="flex items-center gap-3 text-gray-600 hover:text-orange-600"
                 >
                   <Mail className="w-5 h-5" />
-                  info@sossjk.com
+                  sos.sjk@outlook.com
                 </a>
               </div>
             </div>
