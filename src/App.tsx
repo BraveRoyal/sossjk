@@ -1,5 +1,7 @@
 import React from 'react';
 import { Phone, MessageSquare, PenTool as Tool, DoorOpen, SlidersHorizontal, Hammer, MapPin, Clock, ChevronRight, Mail } from 'lucide-react';
+import Logo from './assets/LogoFundoTransparente2.png'
+import './styles/custom.css'
 
 function App() {
   const handleWhatsApp = () => {
@@ -9,16 +11,52 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
+      <header className="bg-header text-white from-amber-50 to-orange-50 py-6 px-4">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
+
+          {/* Contato - escondido no mobile */}
+          <div className="hidden md:flex flex-col items-start gap-3">
+            <h4 className="text-lg font-semibold">Entre em contato:</h4>
+            <button
+              onClick={handleWhatsApp}
+              className="flex items-center gap-2 hover:text-orange-600"
+            >
+              <MessageSquare className="w-5 h-5" />
+              Mensagem no WhatsApp
+            </button>
+          </div>
+
+          {/* Logo - sempre visível e centralizada */}
+          <div className="flex justify-center">
+            <img
+              src={Logo}
+              alt="Logo da S.O.S SJK"
+              className="h-16 md:h-24 transition-all duration-300"
+            />
+          </div>
+
+          {/* Horário - escondido no mobile */}
+          <div className="hidden md:flex flex-col items-end gap-3">
+            <h4 className="text-lg font-semibold">Horário de Funcionamento</h4>
+            <div className="flex items-center gap-2 text-gray-400">
+              <Clock className="w-5 h-5" />
+              Seg-Sáb: 8h às 18h
+            </div>
+          </div>
+
+        </div>
+      </header>
+
       <header className="bg-gradient-to-r from-amber-50 to-orange-50 py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-          Consertos de Marcenaria Especializados
-            <br />
-            <span className="text-orange-600">Quando Você Mais Precisa</span>
-          </h1>
-          <p className="text-xl text-gray-600 mb-8">
-          Consertos profissionais de marcenaria para as necessidades da sua casa
-          </p>
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Porta emperrando? Gaveta torta?
+          <br />
+          <span className="text-orange-600">Nós resolvemos pra você.</span>
+        </h1>
+        <p className="text-xl text-gray-600 mb-8">
+          Reparos rápidos e profissionais em marcenaria, direto na sua casa.
+        </p>
           <button
             onClick={handleWhatsApp}
             className="bg-orange-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-orange-700 transition-colors flex items-center gap-2 mx-auto"
@@ -181,6 +219,15 @@ function App() {
           </div>
         </div>
       </footer>
+      <div className="fixed bottom-4 right-4 z-50">
+        <button
+          onClick={handleWhatsApp}
+          className="bg-green-500 text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-2 hover:bg-green-600"
+        >
+          <MessageSquare className="w-5 h-5" />
+          Fale conosco
+        </button>
+      </div>
     </div>
   );
 
