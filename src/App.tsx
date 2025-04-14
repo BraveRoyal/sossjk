@@ -1,11 +1,17 @@
 import React from 'react';
-import { Phone, MessageSquare, PenTool as Tool, DoorOpen, SlidersHorizontal, Hammer, MapPin, Clock, ChevronRight, Mail } from 'lucide-react';
+import { Phone, MessageSquare, PenTool as Tool, DoorOpen, SlidersHorizontal, Hammer, MapPin, Clock, ChevronRight, Mail, MessageCircle } from 'lucide-react';
 import Logo from './assets/LogoFundoTransparente2.png'
 import './styles/custom.css'
 
 function App() {
   const handleWhatsApp = () => {
     window.open('https://wa.me/5511946159837', '_blank');
+  };
+  const handleTel = () => {
+    window.open('tel:5511946159837', '_blank');
+  };
+  const handleMail = () => {
+    window.open('mailto:sos.sjk@outlook.com', '_blank');
   };
 
   return (
@@ -139,13 +145,13 @@ function App() {
             <div>
               <h3 className="text-xl font-semibold mb-4">Entre em Contato</h3>
               <div className="space-y-4">
-                <a
-                  href="tel:5511946159837"
+                <button
+                  onClick={handleTel}
                   className="flex items-center gap-3 text-gray-600 hover:text-orange-600"
                 >
                   <Phone className="w-5 h-5" />
                   (11) 94615-9837
-                </a>
+                </button>
                 <button
                   onClick={handleWhatsApp}
                   className="flex items-center gap-3 text-gray-600 hover:text-orange-600"
@@ -153,13 +159,13 @@ function App() {
                   <MessageSquare className="w-5 h-5" />
                   Mensagem no WhatsApp
                 </button>
-                <a
-                  href="mailto:sos.sjk@outlook.com"
+                <button
+                  onClick={handleMail}
                   className="flex items-center gap-3 text-gray-600 hover:text-orange-600"
                 >
                   <Mail className="w-5 h-5" />
                   sos.sjk@outlook.com
-                </a>
+                </button>
               </div>
             </div>
             <div>
@@ -207,7 +213,7 @@ function App() {
             <h4 className="text-lg font-semibold mb-4">Área de Atendimento</h4>
             <div className="flex items-center gap-2 text-gray-400">
               <MapPin className="w-5 h-5" />
-              Grande Região Metropolitana
+              São Paulo (Zona Sul)
             </div>
           </div>
           <div>
